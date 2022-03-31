@@ -5,7 +5,9 @@ export default defineNuxtConfig({
     meta: {
         title: "Pranev",
         meta: [
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { name: 'theme-color', hid: 'theme-color', content: '#ff00c3'},
+          { name: 'description', hid: 'description', content: 'I make web apps and random libraries in JavaScript.'}
         ],
         link: [
           { rel: 'shortcut icon', href: '/favicon.ico' },
