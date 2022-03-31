@@ -1,7 +1,7 @@
 <template>
-  <div class="p-4">
-    <div
-      class="
+  <div class="p-4 w-full">
+    <div class="
+      w-full
         p-4
         rounded-xl
         mx-auto
@@ -16,9 +16,12 @@
         duration-500
         ease-in-out group
         hover:-translate-y-1 hover:scale-110
-      "
-    >
-      <NuxtLink v-if = "link.startsWith('/')" :to="link" class="md:flex p-4">
+      ">
+      <NuxtLink
+        v-if="link.startsWith('/')"
+        :to="link"
+        class="md:flex p-4"
+      >
         <div class="md:flex-shrink-0">
           <img
             :src="image"
@@ -27,7 +30,7 @@
           />
         </div>
         <font class="flex-grow p-2 px-8">
-          <p class="text-3xl font-bold pt-3 text-white">
+          <p class="text-3xl font-bold pt-3 text-white text-center md:text-left">
             {{ title }}
           </p>
           <div class="py-3 text-white">
@@ -35,7 +38,11 @@
           </div>
         </font>
       </NuxtLink>
-      <a v-else :href="link" class="md:flex p-4">
+      <a
+        v-else
+        :href="link"
+        class="md:flex p-4"
+      >
         <div class="md:flex-shrink-0">
           <img
             :src="image"
@@ -44,7 +51,7 @@
           />
         </div>
         <font class="flex-grow p-2 px-8">
-          <p class="text-lg font-bold pt-3 text-white">
+          <p class="text-3xl font-bold pt-3 text-white text-center md:text-left">
             {{ title }}
           </p>
           <div class="py-3 text-white">
@@ -61,27 +68,27 @@ export default {
     title: {
       type: String,
       default() {
-        return `The Endless Void`
+        return `The Endless Void`;
       },
     },
     description: {
       type: String,
       default() {
-        return `The Endless Void`
+        return `The Endless Void`;
       },
     },
     image: {
       type: String,
       default() {
-        return `/icon.webp`
+        return `/icon.webp`;
       },
     },
     link: {
       type: String,
       default() {
-        return `/`
+        return `/`;
       },
     },
   },
-}
+};
 </script>

@@ -11,7 +11,7 @@ export default [
   },
   {
     name: `My Code`,
-    route: `https://github.com/retraigo`,
+    route: `/code`,
     key: `github`,
   },
   {
