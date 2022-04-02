@@ -1,6 +1,10 @@
 export default {
   darkMode: "media", // or 'media' or 'class'
-
+  safelist: [
+    {
+      pattern: /(bg|stroke)-maid-(100|200|300|400|500|600)/,
+    },
+  ],
   theme: {
     extend: {
       maxWidth: {
@@ -14,6 +18,12 @@ export default {
       },
       colors: {
         maid: {
+          100: "#ffe6f9",
+          200: "#ffb3ed",
+          300: "#ff80e1",
+          400: "#ff4dd5",
+          500: "#ff1ac9",
+          600: "#cc009c",
           border: "#4ef0fc",
           bg: "#030005",
         },
