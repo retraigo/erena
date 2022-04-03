@@ -128,10 +128,10 @@ export default {
               />
             </NuxtLink>
           </div>
-          <div :class="`z-40 block h-full top-0 left-0 bg-white dark:bg-maid-bg md:bg-transparent fixed md:static transform transition duration-500 ease-in-out md:translate-x-0 p-8 md:p-0 md:block ${
+          <div :class="`overflow-y-scroll md:overflow-y-hidden z-40 block h-full top-0 left-0 bg-white dark:bg-maid-bg md:bg-transparent fixed md:static transform transition duration-500 ease-in-out md:translate-x-0 p-8 md:p-0 md:block ${
               toggleNav ? 'translate-x-0' : '-translate-x-110 md:ml-6'
             }`">
-            <NuxtLink to="/">
+ <!--           <NuxtLink to="/">
               <div class="
                   flex-shrink-0 flex
                   block
@@ -151,7 +151,7 @@ export default {
                 <span class="text-white font-bold">{{ Constants.Name }}</span>
               </div>
             </NuxtLink>
-
+-->
             <div class="flex flex-col md:flex-row justify-between space-x-1 w-full">
               <div class="
                   flex

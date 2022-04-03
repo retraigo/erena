@@ -5,7 +5,6 @@
         p-4
         rounded-xl
         mx-auto
-        bg-maid-bg/40
         text-white
         h-full
         block

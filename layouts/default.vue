@@ -12,39 +12,47 @@
       dark:bg-svg-dark-sm
       dark:md:bg-svg-dark-->
     <div :class="`inset-0 w-full fixed h-full -z-50 block pointer-events-none bg-gray-200 dark:bg-maid-bg`">
-      <div
-        v-for="poss, i in items"
-        :key="`bgItem-${i}`"
+      <svg
+        width="100%"
+        height="100vh"
+        class="absolute -z-40"
       >
-        <div
-          :class="`transition-all duration-1000 ease-in-out transform absolute -z-30 w-5 h-5 -translate-x-1 -translate-y-2 rounded-full bg-maid-${colors[Math.floor(Math.random() * colors.length)]}`"
-          :style="{top: poss[1] + '%', left: poss[0] + '%'}"
-        />
-        <!--
-        <svg
-          v-if="items[i+1]"
-          width="100%"
-          height="100vh"
-          class="absolute -z-40"
+        <g
+          v-for="poss, i in items"
+          :key="`bgItem-${i}`"
         >
-          <g class="transition-all duration-1000 ease-in transform">
-            <line
-              :x1="windowWidth(poss[0])"
-              :y1="windowHeight(poss[1])"
-              :x2="windowWidth(items[i+1][0])"
-              :y2="windowHeight(items[i+1][1])"
-              :class="`stroke-maid-${colors[Math.floor(Math.random() * colors.length)]}`"
-              :style="{animation: 'dash 5s cubic-bezier(.86,0,.07,1)', strokeDasharray: distance(windowWidth(poss[0]), windowHeight(poss[1]), windowWidth(items[i+1][0]), windowHeight(items[i+1][1]))}"
-            />
-          </g>
-        </svg>
-        -->
-      </div>
+            <marker
+              :id="`endLine${i}`"
+              class="relative"
+              viewBox="0 0 22 22"
+              refX="10"
+              refY="10"
+              markerUnits="userSpaceOnUse"
+              markerWidth="22"
+              markerHeight="22"
+            >
+              <circle
+                :class="`transition-all duration-1000 ease-in-out transform absolute -z-30 rounded-full stroke-maid-${colors[Math.floor(Math.random() * colors.length)]} fill-maid-${colors[Math.floor(Math.random() * colors.length)]}`"
+                cx="10"
+                cy="10"
+                r="10px"
+              />
+            </marker>
+          <path
+            v-if="items[i+1]"
+            :d="`M ${windowWidth(poss[0])} ${windowHeight(poss[1])} L ${windowWidth(items[i+1][0])} ${windowHeight(items[i+1][1])}`"
+            stroke-width = "0.5px"
+            :class="`stroke-maid-${colors[Math.floor(Math.random() * colors.length)]} opacity-50 transition-all duration-1000 ease-in transform`"
+            :marker-end="`url(#endLine${i})`"
+          />
+        </g>
+      </svg>
     </div>
     <LayoutHeader :title="nuxtApp._route.path.split('/').reverse()[0] || 'home'" />
-    <main class="flex-1 w-full max-w-7xl p-4 mx-auto md:px-8 py-16 mt-5">
+    <main class="flex-1 w-full max-w-7xl p-4 mx-auto md:px-8 py-4 mt-5 dark:bg-maid-bg/50 bg-gray-300">
       <slot />
     </main>
+    <EffectsPingEye ref="loading" />
   </div>
 </template>
 <style>
@@ -61,7 +69,7 @@ export default {
   data() {
     return {
       nuxtApp: useNuxtApp(),
-      colors: [100, 200, 300, 400, 500, 600, "bg"],
+      colors: [100, 200, 300, 400, 500, 600],
       items: [],
     };
   },
@@ -77,9 +85,23 @@ export default {
     },
   },
   mounted() {
+    /*
+    const loading = this.$refs.loading
+
+    const nuxtApp = useNuxtApp();
+
+    nuxtApp.hook("page:start", () => {
+      loading.value.start();
+    });
+
+    nuxtApp.hook("page:finish", () => {
+      loading.value.finish();
+      window.scrollTo(0, 0);
+    });
+    */
     this.$nextTick(() => {
       const newItems = [];
-      const arr = new Array(5 + Math.floor(Math.random() * 10)).fill(null);
+      const arr = new Array(20 + Math.floor(Math.random() * 10)).fill(null);
       for (let n in arr) {
         console.log(n);
         newItems.push([
