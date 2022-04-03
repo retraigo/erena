@@ -49,7 +49,8 @@
       </svg>
     </div>
     <LayoutHeader :title="nuxtApp._route.path.split('/').reverse()[0] || 'home'" />
-    <main class="flex-1 w-full max-w-7xl p-4 mx-auto md:px-8 py-4 mt-5 dark:bg-maid-bg/50 bg-gray-300">
+    <div class = "inset-0 w-full fixed h-full -z-10 block pointer-events-none dark:bg-maid-bg/50 bg-gray-300/50" />
+    <main class="flex-1 w-full max-w-7xl p-4 mx-auto md:px-8 py-4 mt-5">
       <slot />
     </main>
     <EffectsPingEye ref="loading" />

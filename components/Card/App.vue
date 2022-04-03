@@ -5,7 +5,6 @@
         p-4
         rounded-xl
         mx-auto
-        text-white
         h-full
         block
         bg-opacity-20
@@ -29,10 +28,10 @@
           />
         </div>
         <font class="flex-grow p-2 px-8">
-          <p class="text-3xl font-bold pt-3 text-white text-center md:text-left">
+          <p class="text-3xl font-bold pt-3 text-center md:text-left">
             {{ title }}
           </p>
-          <div class="py-3 text-white">
+          <div class="py-3">
             {{ description }}
           </div>
         </font>
@@ -50,10 +49,10 @@
           />
         </div>
         <font class="flex-grow p-2 px-8">
-          <p class="text-3xl font-bold pt-3 text-white text-center md:text-left">
+          <p class="text-3xl font-bold pt-3 text-center md:text-left">
             {{ title }}
           </p>
-          <div class="py-3 text-white">
+          <div class="py-3">
             {{ description }}
           </div>
         </font>
