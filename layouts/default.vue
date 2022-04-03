@@ -102,7 +102,7 @@ export default {
     */
     this.$nextTick(() => {
       const newItems = [];
-      const arr = new Array(20 + Math.floor(Math.random() * 10)).fill(null);
+      const arr = new Array(Math.floor(this.windowWidth(1)) + Math.floor(Math.random() * 5)).fill(null);
       for (let n in arr) {
         console.log(n);
         newItems.push([
