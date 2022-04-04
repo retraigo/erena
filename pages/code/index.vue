@@ -12,5 +12,11 @@
       link="https://github.com/retraigo/duration.js"
       image="/placeholder/3.png"
     />
+    <CardApp
+      title="Fortuna"
+      description="Weighted gacha system for Deno"
+      link="https://github.com/queenochaos/fortuna"
+      image="/placeholder/2.png"
+    />
   </div>
 </template>
