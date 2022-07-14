@@ -1,0 +1,2 @@
+export const Name = "NeTT"
+export const Description = "I'm Pranev, aka NeTT, a college student who makes random JavaScript programs in my free time. I usually make websites and web apps using Nuxt and TailwindCSS."
