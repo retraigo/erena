@@ -13,18 +13,35 @@
         title="About Me"
         :description="[
           `I'm Pranev, aka NeTT, a college student who makes random JavaScript programs in my free time. I usually make websites and web apps using Vue and Nuxt.`,
-          `Started programming like back in 2020 when I had nothing better to do. Ended up getting quite into it.`, 
+          `Started programming like back in 2020 when I had nothing better to do. Ended up getting quite into it.`,
           `Eventually came to be known by different names here and there, commonly as NeTT in internet communities.`,
         ]"
+      />
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <CardChoice
+        title="Neko Of The Abyss"
+        description="I maintain open-source libraries (mostly TypeScript/JavaScript) under this name."
+        image="/neko.webp"
+        link="https://nekooftheabyss.moe"
+      />
+      <CardChoice
+        title="YouTube Channel"
+        description="I may or may not unleash my true cringe in YouTube."
+        image="/ytimg.webp"
+        link="https://www.youtube.com/channel/UCBwjrG9IYWH97PDDhl72NMQ/"
       />
     </div>
     <div class="flex flex-col items-start space-y-4 text-center">
       <div class="p-2 w-full">
         Written by
-        <a href="https://github.com/retraigo" class="text-chaos-foreground">Pranev</a>
+        <a href="https://github.com/retraigo" class="text-chaos-foreground"
+          >Pranev</a
+        >
       </div>
       <div class="p-2 w-full">
-        Made with <a href="https://nuxtjs.org" class="text-chaos-foreground">Nuxt 3</a>
+        Made with
+        <a href="https://v3.nuxtjs.org" class="text-chaos-foreground">Nuxt 3</a>
       </div>
       <!--        <div class = "p-2">Background from <a href = "https://svgbackgrounds.com" class = "text-chaos-foreground">SVGBackgrounds.com</a></div>-->
       <div class="p-2 w-full">
@@ -36,8 +53,8 @@
         >
       </div>
       <div class="p-2 w-full">
-        Credits to the color <span class="text-chaos-foreground">#fccef1</span> for
-        existing.
+        Credits to the color
+        <span class="text-chaos-foreground">#fccef1</span> for existing.
       </div>
     </div>
   </div>

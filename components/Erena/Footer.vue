@@ -27,7 +27,6 @@
       "
     >
       <div class="p-2 flex flex-col space-y-4 items-center text-center">
-        <a href="/" class="text-2xl font-black">Go Home</a>
         <span
           class="flex flex-row items-center stroke-chaos-foreground stroke-1 space-x-2"
         >
