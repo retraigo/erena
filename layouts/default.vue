@@ -30,7 +30,7 @@
             markerHeight="22"
           >
             <circle
-              :class="`transition-all duration-1000 ease-in transform absolute -z-30 rounded-full stroke-maid-${
+              :class="`transition-all duration-[2000ms] ease-in transform absolute -z-30 rounded-full stroke-maid-${
                 colors[Math.floor(Math.random() * colors.length)]
               } fill-maid-${colors[Math.floor(Math.random() * colors.length)]}`"
               cx="10"
@@ -39,17 +39,19 @@
             />
           </marker>
           <path
-            v-if="items[i + 1]"
-            :d="`M ${windowWidth(poss[0])} ${windowHeight(
-              poss[1]
-            )} L ${windowWidth(items[i + 1][0])} ${windowHeight(
-              items[i + 1][1]
+            :d="`${
+//              i === 0
+//                ? `M ${windowWidth(items[i + 1]?.[0] || poss[0])} ${windowHeight(items[i + 1]?.[0] || poss[0])}`
+                `M ${windowWidth(poss[0])} ${windowHeight(poss[1])}`
+            } L ${windowWidth(items[i + 1]?.[0] || poss[0])} ${windowHeight(
+              items[i + 1]?.[1] || poss[1]
             )}`"
             stroke-width="0.5px"
             :class="`stroke-maid-${
               colors[Math.floor(Math.random() * colors.length)]
-            } opacity-50 transition-all duration-1000 ease-in transform`"
+            } opacity-50 transition-all duration-1000 ease-in transform item${i}`"
             :marker-end="`url(#endLine${i})`"
+            :marker-start="!i ? `url(#endLine${i})` : undefined"
           />
         </g>
       </svg>
@@ -70,7 +72,7 @@
     <main class="flex-1 w-full max-w-7xl p-4 mx-auto md:px-8 py-4 mt-5">
       <slot />
     </main>
-        <ErenaFooter />
+    <ErenaFooter />
   </div>
 </template>
 <style>
@@ -109,7 +111,7 @@ onMounted(() => {
       Math.floor(Math.random() * 100),
     ]);
   }
-  setInterval(() => {
+  window.movingItem = setInterval(() => {
     items.value = items.value.map((x) => [
       Math.floor(Math.random() * 100),
       Math.floor(Math.random() * 100),
