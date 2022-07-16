@@ -26,11 +26,31 @@
             refX="10"
             refY="10"
             markerUnits="userSpaceOnUse"
-            markerWidth="22"
-            markerHeight="22"
+            markerWidth="5"
+            markerHeight="5"
           >
             <circle
-              :class="`transition-all duration-[2000ms] ease-in transform absolute -z-30 rounded-full stroke-maid-${
+              :class="`transition-all duration-[5000ms] ease-in transform absolute -z-30 rounded-full stroke-maid-${
+                colors[Math.floor(Math.random() * colors.length)]
+              } fill-maid-${colors[Math.floor(Math.random() * colors.length)]}`"
+              cx="10"
+              cy="10"
+              r="10px"
+            />
+          </marker>
+          <marker
+            v-if="i === 0"
+            :id="`startLine${i}`"
+            class="relative"
+            viewBox="0 0 22 22"
+            refX="10"
+            refY="10"
+            markerUnits="userSpaceOnUse"
+            markerWidth="5"
+            markerHeight="5"
+          >
+            <circle
+              :class="`transition-all duration-[5000ms] ease-in transform absolute -z-30 rounded-full stroke-maid-${
                 colors[Math.floor(Math.random() * colors.length)]
               } fill-maid-${colors[Math.floor(Math.random() * colors.length)]}`"
               cx="10"
@@ -40,18 +60,18 @@
           </marker>
           <path
             :d="`${
-//              i === 0
-//                ? `M ${windowWidth(items[i + 1]?.[0] || poss[0])} ${windowHeight(items[i + 1]?.[0] || poss[0])}`
-                `M ${windowWidth(poss[0])} ${windowHeight(poss[1])}`
+              //              i === 0
+              //                ? `M ${windowWidth(items[i + 1]?.[0] || poss[0])} ${windowHeight(items[i + 1]?.[0] || poss[0])}`
+              `M ${windowWidth(poss[0])} ${windowHeight(poss[1])}`
             } L ${windowWidth(items[i + 1]?.[0] || poss[0])} ${windowHeight(
               items[i + 1]?.[1] || poss[1]
             )}`"
             stroke-width="0.5px"
             :class="`stroke-maid-${
               colors[Math.floor(Math.random() * colors.length)]
-            } opacity-50 transition-all duration-1000 ease-in transform item${i}`"
+            } opacity-50 transition-all duration-[5000ms] ease-in transform item${i}`"
             :marker-end="`url(#endLine${i})`"
-            :marker-start="!i ? `url(#endLine${i})` : undefined"
+            :marker-start="!i ? `url(#startLine${i})` : undefined"
           />
         </g>
       </svg>
@@ -101,6 +121,14 @@ function windowHeight(x) {
 function distance(x1, y1, x2, y2) {
   return Math.sqrt(Math.abs((x2 - x1) ** 2) - Math.abs((y2 - y1) ** 2));
 }
+
+function moveItems() {
+  items.value = items.value.map((x) => [
+    Math.floor(Math.random() * 100),
+    Math.floor(Math.random() * 100),
+  ]);
+}
+
 onMounted(() => {
   const arr = new Array(
     Math.floor(windowWidth(1)) + Math.floor(Math.random() * 5)
@@ -112,10 +140,8 @@ onMounted(() => {
     ]);
   }
   window.movingItem = setInterval(() => {
-    items.value = items.value.map((x) => [
-      Math.floor(Math.random() * 100),
-      Math.floor(Math.random() * 100),
-    ]);
-  }, 1000);
+    moveItems();
+  }, 4500);
+  setTimeout(moveItems, 500);
 });
 </script>
